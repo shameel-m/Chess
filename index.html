@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Chess</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="app">
+    <h1><span class="accent">&#9822;</span> Chess</h1>
+    <div class="status" id="status">White to move</div>
+    <div class="tray" id="trayTop"></div>
+    <div class="board" id="board"></div>
+    <div class="tray" id="trayBottom"></div>
+    <div class="hint">Click a piece, then click a highlighted square to move.</div>
+    <div class="history-controls hidden" id="historyControls">
+      <button class="ghost-btn" id="undoBtn" disabled>&#8630; Undo</button>
+      <button class="ghost-btn" id="redoBtn" disabled>&#8631; Redo</button>
+    </div>
+    <div class="controls">
+      <button id="newGame">New Game</button>
+      <button id="settingsBtn" class="ghost-btn">&#9881; Settings</button>
+      <button id="copyGame" class="ghost-btn" type="button">Copy PGN</button>
+    </div>
+    <div class="copy-status" id="copyStatus" aria-live="polite"></div>
+    <div class="mode-info" id="modeInfo">Two-player hot-seat</div>
+    <footer class="site-footer">
+      <span>© 2026 Chess. All rights reserved</span><span aria-hidden="true">·</span>
+      <a href="https://github.com/yourusername/your-repository" target="_blank" rel="noopener noreferrer" title="Replace this placeholder with your GitHub repository">GitHub ↗</a>
+    </footer>
+  </div>
+
+  <div class="overlay hidden" id="promo">
+    <div class="promo-box">
+      <div class="promo-title">Promote pawn</div>
+      <div class="promo-choices"></div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="setup">
+    <div class="setup-box">
+      <div class="setup-title">New Game</div>
+      <div class="setup-group">
+        <div class="setup-label">Mode</div>
+        <div class="opt-row">
+          <button class="opt" data-mode="two">Two Player</button>
+          <button class="opt" data-mode="ai">vs Computer</button>
+        </div>
+      </div>
+      <div class="setup-group" id="aiOpts">
+        <div class="setup-label">Play as</div>
+        <div class="opt-row">
+          <button class="opt" data-side="w">White</button>
+          <button class="opt" data-side="b">Black</button>
+        </div>
+        <div class="setup-label">Difficulty</div>
+        <div class="opt-row">
+          <button class="opt" data-diff="easy">Easy</button>
+          <button class="opt" data-diff="hard">Hard</button>
+        </div>
+      </div>
+      <button class="setup-start" id="startBtn">Start Game</button>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="settings">
+    <div class="settings-box">
+      <div class="settings-title">Settings</div>
+
+      <div class="settings-row">
+        <span>Board theme</span>
+        <select id="setTheme">
+          <option value="classic">Classic (green)</option>
+          <option value="blue">Blue</option>
+          <option value="wood">Wood</option>
+          <option value="gray">Gray</option>
+        </select>
+      </div>
+
+      <div class="settings-row">
+        <span>Show legal move highlights</span>
+        <label class="switch"><input type="checkbox" id="setHighlights"><span class="slider"></span></label>
+      </div>
+
+      <div class="settings-row">
+        <span>Show coordinates</span>
+        <label class="switch"><input type="checkbox" id="setCoords"><span class="slider"></span></label>
+      </div>
+
+      <div class="settings-row">
+        <span>Highlight last move</span>
+        <label class="switch"><input type="checkbox" id="setLastMove"><span class="slider"></span></label>
+      </div>
+
+      <div class="settings-row">
+        <span>AI move delay</span>
+        <select id="setDelay">
+          <option value="instant">Instant</option>
+          <option value="fast">Fast</option>
+          <option value="normal">Normal</option>
+          <option value="slow">Slow</option>
+        </select>
+      </div>
+
+      <div class="settings-row">
+        <span>Flip board</span>
+        <label class="switch"><input type="checkbox" id="setFlip"><span class="slider"></span></label>
+      </div>
+
+      <button class="settings-close" id="settingsClose">Close</button>
+    </div>
+  </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
