@@ -2,6 +2,8 @@
 
 A browser-based chess game.
 
+**Live Demo:** https://chess.shameelm.workers.dev
+
 ## Project files
 
 - `index.html` — page structure and game interface
